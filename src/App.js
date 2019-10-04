@@ -1,28 +1,30 @@
 import React, { Component } from 'react';
-// import logo from './logo.svg';
 import './App.css';
 
 import Header from './components/Header';
 import Container from './components/Container';
-// import Card from './components/Card';
-// import Button from './components/Button';
-// import { gradients } from './data/gradients';
+
+import { todo } from './data/todo';
+import { done } from './data/done';
 
 
 class App extends Component {
-  // state = {
-  //   gradients: gradients,
-  //   title: 'Pinta y colorea'
-  // }
+  state = {
+    todo: todo,
+    done: done
+  }
 
 
   render() {
+    const { todo, done } = this.state;
+    console.log(todo)
+    console.log(done)
     return (
       <div className="App">
         <Header />
         <section>
-          <Container>To do</Container>
-          <Container>Done</Container>
+          <Container todo>To do</Container>
+          <Container done>Done</Container>
         </section>
         
       </div>

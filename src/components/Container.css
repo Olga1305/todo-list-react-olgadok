@@ -4,7 +4,7 @@
     flex-direction: column;
     flex-wrap: wrap;
     padding: 0 35px;
-    border-right: dotted 3px ;
+    border-right: dotted 3px;
 }
 
 .Container h2 {
@@ -13,8 +13,6 @@
 }
 
 .Container section {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    border: none;
     /* border: solid 1px gold; */
 }

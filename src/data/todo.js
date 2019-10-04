@@ -1,0 +1,1 @@
+export const todo = ["Learn React", "Finish the lab", "Edit Portfolio"]
