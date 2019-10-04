@@ -11,3 +11,7 @@
   justify-content: space-around;
   border-left: dotted 3px;
 }
+
+.input {
+  padding-bottom: 50px;
+}

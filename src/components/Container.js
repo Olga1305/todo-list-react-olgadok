@@ -7,14 +7,19 @@ import { done } from '../data/done';
 
 
 class Container extends Component { 
+    state = {
+        todo: todo,
+        done: done
+      }
+
     render() {        
         
         let list;
         if (this.props.todo) {
-            list = todo;
+            list = this.state.todo;
         }
         if (this.props.done) {
-            list = done;
+            list = this.state.done;
         }
 
         console.log(list)
