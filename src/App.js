@@ -1,18 +1,30 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 
+import Header from './components/Header';
+import Container from './components/Container';
+// import Card from './components/Card';
+// import Button from './components/Button';
+// import { gradients } from './data/gradients';
+
+
 class App extends Component {
+  // state = {
+  //   gradients: gradients,
+  //   title: 'Pinta y colorea'
+  // }
+
+
   render() {
     return (
       <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <Header />
+        <section>
+        <Container>To do</Container>
+        <Container>Done</Container>
+        </section>
+        
       </div>
     );
   }

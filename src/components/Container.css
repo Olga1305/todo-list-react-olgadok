@@ -1,0 +1,15 @@
+.Container {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding: 35px;
+    /* border: solid 1px blue; */
+}
+
+.Container section {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    /* border: solid 1px gold; */
+}
