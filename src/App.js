@@ -21,8 +21,8 @@ class App extends Component {
       <div className="App">
         <Header />
         <section>
-        <Container>To do</Container>
-        <Container>Done</Container>
+          <Container>To do</Container>
+          <Container>Done</Container>
         </section>
         
       </div>

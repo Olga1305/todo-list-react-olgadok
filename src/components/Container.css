@@ -3,8 +3,13 @@
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    padding: 35px;
-    /* border: solid 1px blue; */
+    padding: 0 35px;
+    border-right: dotted 3px ;
+}
+
+.Container h2 {
+    font-size: 2rem;
+
 }
 
 .Container section {

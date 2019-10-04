@@ -15,7 +15,7 @@ class Container extends Component {
                   <Card></Card>
                   <Card></Card>
                   <Card></Card>
-                  <Card></Card>
+                  
                   
                 </section>              
                 
