@@ -8,8 +8,8 @@ class Card extends Component {
         return (
             <div className="Card">
                 <p>{this.props.text}</p>
-                <input name="done" type="checkbox"></input>
-                <Button myProp={this.props.action}>Delete</Button>                
+                <input type="checkbox" onClick={this.props.check} checked = {this.props.atribute}></input>
+                <Button myProp={this.props.delete}>Delete</Button>                
                 
             </div>
         )

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import image from './components/bottom-img.png';
 
 import Header from './components/Header';
 import Button from './components/Button';
@@ -18,11 +19,28 @@ class App extends Component {
   addATask = () => {
     const { todo } = this.state;
     this.setState({
-      todo: [this.textInput.value, ...todo]
-    }, () => {
-      console.log('🤣', this.state.todo)
+      todo: [...todo, this.textInput.value]
     })
+    this.textInput.value = "";
   }
+
+  markDone = (task) => {
+    const todo = this.state.todo.filter(i => i !== task)
+    this.setState({todo})
+    const { done } = this.state;
+    this.setState({
+      done: [...done, task]
+    })
+  } 
+
+  unmark = (task) => {
+    const done = this.state.done.filter(i => i !== task)
+    this.setState({done})
+    const { todo } = this.state;
+    this.setState({
+      todo: [...todo, task]
+    })
+  } 
 
   deleteTodo = (task) => {
     const todo = this.state.todo.filter(i => i !== task)
@@ -37,15 +55,14 @@ class App extends Component {
 
   render() {
     const { todo, done } = this.state;
-    console.log(todo)
-    console.log(done)
+    
     return (
       <div className="App">
         <Header />
         <div className="input">          
-            <p>Add a task</p>
+            <h2>Add a task</h2>
             <p>
-			        <input id="new-task" type="text" ref={(input) => this.textInput = input}></input>
+			        <input id="new-task" type="text" maxLength="35" ref={(input) => this.textInput = input}></input>
               <Button myProp={this.addATask}>Add</Button>
 		        </p>
         </div>   
@@ -56,7 +73,7 @@ class App extends Component {
                     
                     {this.state.todo.map((task, index) => {
                       return (
-                       <Card key={`${task}-${index}`} text={task} action={this.deleteTodo.bind(this, task)}/>
+                       <Card key={`${task}-${index}`} text={task} delete={this.deleteTodo.bind(this, task)} check={this.markDone.bind(this, task)} atribute={false}/>
                       )
                     })} 
                                       
@@ -69,12 +86,15 @@ class App extends Component {
                     
                     {this.state.done.map((task, index) => {
                       return (
-                       <Card key={`${task}-${index}`} text={task} action={this.deleteDone.bind(this, task)}/>
+                       <Card key={`${task}-${index}`} text={task} delete={this.deleteDone.bind(this, task)} check={this.unmark.bind(this, task)} atribute={true}/>
                       )
                     })} 
                                       
                   
             </section>   
+          </div>
+          <div>
+            <img src={image} className="bottom-img" alt="img" />
           </div>
           
         </section>
@@ -87,43 +107,3 @@ class App extends Component {
 export default App;
 
 
-
-
-// handleEmailChange: function(e) {
-//   this.setState({email: e.target.value});
-// },
-// handlePasswordChange: function(e) {
-//   this.setState({password: e.target.value});
-// },
-// render : function() {
-//      return (
-//        <form>
-//          <input type="text" name="email" placeholder="Email" value={this.state.email} onChange={this.handleEmailChange} />
-//          <input type="password" name="password" placeholder="Password" value={this.state.password} onChange={this.handlePasswordChange}/>
-//          <button type="button" onClick={this.handleLogin}>Login</button>
-//        </form>);
-// },
-// handleLogin: function() {
-//    console.log("EMail: " + this.state.email);
-//    console.log("Password: " + this.state.password);
-// }
-
-// ////
-
-// handleSearchTermSubmit(event) {
-//   event.preventDefault();
-//   this.props.onSearchTermSubmit(this.textInput.value);
-// }
-
-// render() {
-//     return (
-//       <div className="SearchBar">
-//         <h1>SearchBar</h1>
-//         <form onSubmit={this.handleSearchTermSubmit}>
-//           <input type="text" ref={(input) => this.textInput = input} />
-//           <button>Search</button>
-//           <button type="button">Random (doesn't do anything)</button>
-//         </form>
-//       </div>
-//     );
-// }

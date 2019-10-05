@@ -3,7 +3,7 @@ import './Button.css';
 
 const Button = ({ children, myProp }) => {
   return (
-    <button onClick={myProp}>
+    <button className="Button" onClick={myProp}>
       {children}
     </button>
   );
