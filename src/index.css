@@ -9,19 +9,7 @@ body {
   margin: 0;
   padding: 0;
   font-size: 18px;
-  
-  /* background: linear-gradient(to right, #fed6e3, #a8edea); */
-
-  /* background: linear-gradient(to right, #f9f586, #96fbc4); */
-
-  background: linear-gradient(to right, #fbed96, #abecd6);
-
-  /* background: linear-gradient(to right, rgba(251,237,150, 0.8), rgba(171,236,214, 0.8)); */
-
-  /* background-image: url("./components/laptop.jpg");
-  background-size: cover;
-  background-position: center; */
-  
+  background: linear-gradient(to right, #fbed96, #abecd6);  
 }
 
 

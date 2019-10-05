@@ -8,3 +8,7 @@
     /* border: solid 1px red; */
     
 } 
+
+.Card input {
+    margin: 0 35px 0 0;
+}

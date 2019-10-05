@@ -3,7 +3,7 @@ import './App.css';
 
 import Header from './components/Header';
 import Button from './components/Button';
-import Container from './components/Container';
+import Card from './components/Card';
 
 import { todo } from './data/todo';
 import { done } from './data/done';
@@ -24,6 +24,16 @@ class App extends Component {
     })
   }
 
+  deleteTodo = (task) => {
+    const todo = this.state.todo.filter(i => i !== task)
+    this.setState({todo})
+  } 
+  
+  deleteDone = (task) => {
+    const done = this.state.done.filter(i => i !== task)
+    this.setState({done})
+  } 
+
 
   render() {
     const { todo, done } = this.state;
@@ -32,7 +42,7 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        <div className="input">
+        <div className="input">          
             <p>Add a task</p>
             <p>
 			        <input id="new-task" type="text" ref={(input) => this.textInput = input}></input>
@@ -40,8 +50,33 @@ class App extends Component {
 		        </p>
         </div>   
         <section>
-          <Container todo>To do</Container>
-          <Container done>Done</Container>
+          <div id="todo" className="container">
+            <h2>To do</h2>
+            <section>
+                    
+                    {this.state.todo.map((task, index) => {
+                      return (
+                       <Card key={`${task}-${index}`} text={task} action={this.deleteTodo.bind(this, task)}/>
+                      )
+                    })} 
+                                      
+                  
+            </section>   
+          </div>
+          <div id="done" className="container">
+            <h2>Done</h2>
+            <section>
+                    
+                    {this.state.done.map((task, index) => {
+                      return (
+                       <Card key={`${task}-${index}`} text={task} action={this.deleteDone.bind(this, task)}/>
+                      )
+                    })} 
+                                      
+                  
+            </section>   
+          </div>
+          
         </section>
         
       </div>
@@ -50,6 +85,7 @@ class App extends Component {
 }
 
 export default App;
+
 
 
 

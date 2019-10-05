@@ -22,9 +22,10 @@ class Container extends Component {
             list = this.state.done;
         }
 
-        console.log(list)
+        console.log('list', list);
 
         return (
+            
             <div className="Container">
                 <h2>{this.props.children}</h2>
                 <section>
